@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worksheets.Pages.TablePage">
+  <ContentPage.Title>Worksheets</ContentPage.Title>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Add" Icon="Worksheets.add.png"></ToolbarItem>
+    <ToolbarItem Text="Save" Icon="save.png"></ToolbarItem>
+    <ToolbarItem Text="Formula" Icon="formula.png" Clicked="MenuItem1_OnClicked"></ToolbarItem>
+    <ToolbarItem Text="Heart" Icon="heart.png" Clicked="MenuItem_OnClicked"></ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <Grid x:Name="GridTable">
+    
+  </Grid>
+</ContentPage>

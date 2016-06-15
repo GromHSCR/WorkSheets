@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Worksheets.Pages.WorkSheetsPage"
+             Title="Worksheets"
+             x:Name="WorksheetsPage">
+    <ContentPage.ToolbarItems>
+      <ToolbarItem x:Name="NewItemButton" Text="New" Priority="0"></ToolbarItem>
+      <ToolbarItem x:Name="Palette" Text="Color" Priority="1" Clicked="Palette_OnClicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="MainListView" ItemsSource="{Binding WorkSheets}" HasUnevenRows="True" ItemSelected="MenuItem_OnClicked">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell x:Name="WorksheetCell">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="5">
+              <Image BindingContext="{x:Reference WorksheetsPage}" Source="{Binding ImageIcon}"></Image>
+              <StackLayout Orientation="Vertical">
+                <Label Text="{Binding Name}" FontSize="14" VerticalTextAlignment="Center"></Label>
+                <Label Text="{Binding ModifiedAsString, StringFormat='Opened by me on {0:N}'}" FontSize="10"  VerticalTextAlignment="Center"></Label>
+              </StackLayout>
+              <Button BindingContext="{x:Reference WorksheetsPage}" Image="{Binding More}"></Button>
+            </StackLayout>
+            <ViewCell.ContextActions>
+              <ToolbarItem BindingContext="{x:Reference WorksheetsPage}" Icon="{Binding Source=Clone}" Text="Clone"></ToolbarItem>
+              <ToolbarItem BindingContext="{x:Reference WorksheetsPage}" Icon="{Binding Source=Rename}" Text="Rename"></ToolbarItem>
+              <ToolbarItem BindingContext="{x:Reference WorksheetsPage}" Icon="{Binding Source=Remove}" Text="Remove"></ToolbarItem>
+            </ViewCell.ContextActions>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
